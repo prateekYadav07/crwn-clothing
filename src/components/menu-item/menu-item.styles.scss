@@ -60,10 +60,11 @@
       position: absolute;
   
       .title {
-        font-weight: bold;
+        font-weight: bolder;
+        text-transform: uppercase;
         margin: 0 6px 0;
         font-size: 22px;
-        color: #4a4a4a;
+        color: #080808;
       }
   
       .subtitle {
