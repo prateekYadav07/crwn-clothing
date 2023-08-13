@@ -36,14 +36,14 @@ class SignIn extends Component {
             <div className="sign-in">
                 <h2>I already have an account</h2>
                 <span>sign in with your email and password</span>
-                <form onSubmit={this.handleSubmit}>
+                <div>
                     <FormInput label="Email" name="email" type="email" handleChange={this.handleChange} value={this.state.email} required />
                     <FormInput label="Password" name="password" type="password" handleChange={this.handleChange} value={this.state.password} required />
                     <div className="buttons">
-                        <CustomButton type="submit">Sign In</CustomButton>
+                        <CustomButton type="submit" onClick={this.handleSubmit}>Sign In</CustomButton>
                         <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
                     </div>
-                </form>
+                </div>
             </div>
         )
     }
