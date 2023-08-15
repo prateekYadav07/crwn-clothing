@@ -62,7 +62,7 @@ class App extends Component {
     );
   }
 }
- 
+
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
