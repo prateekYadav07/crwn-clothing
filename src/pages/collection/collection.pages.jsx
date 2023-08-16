@@ -1,8 +1,9 @@
 import React from "react";
 import './collection.styles.scss'
 
-const Collection = (props) => {
-    console.log('blasvdvdv',props);
+const CollectionPage = ({match}) => {
+    const {params} = match
+    console.log(params.collection);
     return (
         <div className="collection-page">
             COLLECTION
@@ -10,4 +11,4 @@ const Collection = (props) => {
     )
 }
 
-export default Collection
+export default CollectionPage
