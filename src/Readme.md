@@ -1,0 +1,1 @@
+### Styled components: Header, HomePage
