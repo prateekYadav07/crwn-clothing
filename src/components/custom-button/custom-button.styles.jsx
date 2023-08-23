@@ -13,7 +13,6 @@ border: none;
 `
 
 const googleSignInButton = css`
-&.google-sign-in {
     background-color: #4285f4;
     color: white;
 
@@ -21,11 +20,9 @@ const googleSignInButton = css`
         background-color: #357ae8;
         border: none;
     }
-}
 `
 
 const invertedSignInButton = css`
-&.inverted {
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -35,11 +32,9 @@ const invertedSignInButton = css`
         color: white;
         border: none;
     }
-}
 `
 
 const getButtonStyles = props => {
-    console.log(props);
     if (props.isGoogleSignIn) {
         return googleSignInButton
     }
