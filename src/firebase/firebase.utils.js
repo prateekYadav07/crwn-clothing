@@ -38,9 +38,17 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-export const addCollectionsAndItems = (collectionKey, itemsToAdd) => {
-  const collections = firestore.collection(collectionKey);
-  console.log( " sdvsdv ",collections);
+export const addCollectionsAndItems = async (collectionKey, itemsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  console.log(itemsToAdd);
+  const batch = firestore.batch();
+  itemsToAdd.forEach((item) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, item);
+  });
+
+  return await batch.commit()
 };
 
 const provider = new firebase.auth.GoogleAuthProvider();
