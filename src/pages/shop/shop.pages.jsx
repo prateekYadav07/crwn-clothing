@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCollectionStartAsync } from "../../redux/shop/shop.actions";
 import CollectionOverviewContainer from "../../components/collections-overview/collection-overview.container";
+import { fetchCollectionStart } from "../../redux/shop/shop.actions";
 
 class ShopPage extends Component {
     componentDidMount() {
-        this.props.collectionFetchStartAsync()
+        this.props.fetchCollectionStart()
     }
 
     render() {
         return (
             <div className="shop-page">
-                <CollectionOverviewContainer/>
+                <CollectionOverviewContainer />
             </div>
         )
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    collectionFetchStartAsync: () => { dispatch(fetchCollectionStartAsync()) }
+    fetchCollectionStart: () => dispatch(fetchCollectionStart())
 })
 
 export default connect(null, mapDispatchToProps)(ShopPage)
