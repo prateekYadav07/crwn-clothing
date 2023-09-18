@@ -1,7 +1,7 @@
-import {
-  convertCollectionSnapshotToMap,
-  firestore,
-} from "../../firebase/firebase.utils";
+// import {
+//   convertCollectionSnapshotToMap,
+//   firestore,
+// } from "../../firebase/firebase.utils";
 import shopActionTypes from "./shop.types";
 
 export const fetchCollectionStart = () => ({
@@ -19,18 +19,18 @@ export const fetchCollectionFailure = (errorMessage) => ({
 });
 
 // export const fetchCollectionStartAsync = () => {
-//   return (dispatch) => {
-//     const collectionRef = firestore.collection("collections");
-//     dispatch(fetchCollectionStart());
+  // return (dispatch) => {
+  //   const collectionRef = firestore.collection("collections");
+  //   dispatch(fetchCollectionStart());
 
-//     // this is a promise based pattern (but still using firestore snapshot)
-//     collectionRef
-//       .get()
-//       .then(async (snapshot) => {
-//         const collectionMap = convertCollectionSnapshotToMap(snapshot);
-//         dispatch(fetchCollectionSuccess(collectionMap));
-//       })
-//       .catch((error) => dispatch(fetchCollectionFailure(error.message)));
+  //   // this is a promise based pattern (but still using firestore snapshot)
+  //   collectionRef
+  //     .get()
+  //     .then(async (snapshot) => {
+  //       const collectionMap = convertCollectionSnapshotToMap(snapshot);
+  //       dispatch(fetchCollectionSuccess(collectionMap));
+  //     })
+  //     .catch((error) => dispatch(fetchCollectionFailure(error.message)));
 
 //     //actual way of dealing with apis using fetch and promise
 //     // fetch("https://firestore.googleapis.com/v1/projects/crwn-db-e373b/databases/(default)/documents/collections")
