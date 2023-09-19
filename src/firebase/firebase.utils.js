@@ -68,9 +68,9 @@ export const convertCollectionSnapshotToMap = (collections) => {
   }, {});
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () =>
-  auth.signInWithPopup(provider).catch((error) => {
+  auth.signInWithPopup(googleProvider).catch((error) => {
     console.log(error.message);
   });
