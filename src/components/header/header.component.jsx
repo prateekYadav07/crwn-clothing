@@ -10,7 +10,6 @@ import { createStructuredSelector } from "reselect";
 import { HeaderContainer, LogoContainer, OptionLink, OptionsContainer } from "./header.styles";
 
 const Header = ({ currentUser, hidden }) => {
-    console.log(currentUser);
     return (
         <HeaderContainer>
             <LogoContainer to="/">
