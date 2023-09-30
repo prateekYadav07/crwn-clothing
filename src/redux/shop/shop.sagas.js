@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
 // import takeEvery from "redux-saga";
 
 import shopActionTypes from "./shop.types";
@@ -20,9 +20,12 @@ export function* fetchCollectionAsync() {
 }
 
 export function* fetchCollectionStart() {
-  console.log("fetchCollectionStart");
   yield takeLatest(
     shopActionTypes.FETCH_COLLLECTION_START,
     fetchCollectionAsync
   );
+}
+
+export function* shopSagas() {
+  yield all([call(fetchCollectionStart)]);
 }
