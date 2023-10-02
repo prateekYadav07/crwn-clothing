@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import CollectionOverviewContainer from "../../components/collections-overview/collection-overview.container";
 import { fetchCollectionStart } from "../../redux/shop/shop.actions";
 
-class ShopPage extends Component {
-    componentDidMount() {
-        this.props.fetchCollectionStart()
-    }
+const ShopPage = ({ fetchCollectionStart }) => {
 
-    render() {
-        return (
-            <div className="shop-page">
-                <CollectionOverviewContainer />
-            </div>
-        )
-    }
+    useEffect(() => {
+        fetchCollectionStart()
+    }, [fetchCollectionStart])
+
+    return (
+        <div className="shop-page">
+            <CollectionOverviewContainer />
+        </div>
+    )
 }
 
 const mapDispatchToProps = (dispatch) => ({
