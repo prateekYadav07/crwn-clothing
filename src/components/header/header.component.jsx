@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import CartIcon from "../cart-icon/cart-icon.components";
 import CartDropdown from "../cart-dropdown/cart-dropdown.components";
@@ -8,7 +8,9 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import { HeaderContainer, LogoContainer, OptionLink, OptionsContainer } from "./header.styles";
 
-const Header = ({ currentUser, hidden, signOut }) => {
+const Header = () => {
+    const currentUser = useSelector(selectCurrentUser)
+    const hidden = useSelector(selectHidden)
     return (
         <HeaderContainer>
             <LogoContainer to="/">
@@ -29,9 +31,4 @@ const Header = ({ currentUser, hidden, signOut }) => {
     )
 }
 
-const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-    hidden: selectHidden
-})
-
-export default connect(mapStateToProps, null)(Header)
+export default Header

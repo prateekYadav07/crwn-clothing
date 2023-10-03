@@ -8,16 +8,20 @@ import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sing-up.pages";
 import CheckoutPage from "./pages/checkout/checkout.pages";
 import CollectionPage from "./pages/collection/collection.pages";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
-import SignOut, { SignOutMessage } from "./pages/sign-in-and-sign-up/sign-out.pages";
+import SignOut, {
+  SignOutMessage,
+} from "./pages/sign-in-and-sign-up/sign-out.pages";
 
-const App = ({ checkUserSession, currentUser }) => {
+const App = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    checkUserSession();
-  }, [checkUserSession]);
+    dispatch(checkUserSession());
+  }, [dispatch]);
 
   return (
     <div>
@@ -34,19 +38,11 @@ const App = ({ checkUserSession, currentUser }) => {
             return currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />;
           }}
         />
-          <Route exact path="/signout" component={SignOut} />
-          <Route exact path="/visitagain" component={SignOutMessage} />
+        <Route exact path="/signout" component={SignOut} />
+        <Route exact path="/visitagain" component={SignOutMessage} />
       </Switch>
     </div>
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  checkUserSession: () => dispatch(checkUserSession()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

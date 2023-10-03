@@ -1,11 +1,12 @@
 import CollectionItem from "../collection-item/collection-item.components"
 import { selectCollection } from "../../redux/shop/shop.selectors"
-import { connect } from "react-redux"
+import { connect, useSelector } from "react-redux"
 import './collection.styles.scss'
 import { compose } from "redux"
 import { withRouter } from "react-router-dom/cjs/react-router-dom.min"
 
 const CollectionView = ({ collection }) => {
+    // const collection = useSelector()
     const { title, items } = collection
     return (
         <div className="collection-page">

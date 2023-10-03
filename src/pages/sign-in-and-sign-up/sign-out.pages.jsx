@@ -21,7 +21,7 @@ const SignOut = ({ signOutStart, history }) => {
     }
 
     const handleCancel = () => {
-        history.push('/shop')
+        history.push('/')
     }
 
     return (
