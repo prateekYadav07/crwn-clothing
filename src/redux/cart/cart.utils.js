@@ -19,11 +19,11 @@ export const removeItemFromCart = (cartItems, cartItemToBeRemoved) => {
     (item) => item.id === cartItemToBeRemoved.id
   );
 
-  if (existingCartItem.quantity === 1)
-    return cartItems.filter((item) => item.id !== existingCartItem.id);
+  // if (existingCartItem.quantity > 1)
+  //   return cartItems.filter((item) => item.id !== existingCartItem.id);
 
   return cartItems.map((item) => {
-    return item.id === existingCartItem.id
+    return item.id === existingCartItem.id && item.quantity>1
       ? { ...item, quantity: item.quantity - 1 }
       : item;
   });
