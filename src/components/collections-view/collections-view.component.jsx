@@ -1,13 +1,13 @@
 import CollectionItem from "../collection-item/collection-item.components"
 import { selectCollection } from "../../redux/shop/shop.selectors"
-import { connect, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import './collection.styles.scss'
-import { compose } from "redux"
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min"
+import { useParams } from "react-router-dom/cjs/react-router-dom.min"
 
-const CollectionView = ({ collection }) => {
-    // const collection = useSelector()
-    const { title, items } = collection
+const CollectionView = () => {
+    const { collection } = useParams()
+    const collectionItem = useSelector(selectCollection(collection))
+    const { title, items } = collectionItem
     return (
         <div className="collection-page">
             <h2 className="title">{title}</h2>
@@ -20,8 +20,4 @@ const CollectionView = ({ collection }) => {
     )
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    collection: selectCollection(ownProps.match.params.collection)(state)
-})
-
-export default compose(withRouter, connect(mapStateToProps))(CollectionView)
+export default CollectionView

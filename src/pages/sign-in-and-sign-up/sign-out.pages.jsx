@@ -1,6 +1,6 @@
 import { signOutStart } from "../../redux/user/user.actions";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const SignOutMessage = () => {
     return (
@@ -13,10 +13,11 @@ export const SignOutMessage = () => {
     )
 }
 
-const SignOut = ({ signOutStart, history }) => {
-    // const history = useHistory()
+const SignOut = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
     const handleLogout = () => {
-        signOutStart()
+        dispatch(signOutStart())
         history.push('/visitagain')
     }
 
@@ -40,8 +41,4 @@ const SignOut = ({ signOutStart, history }) => {
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    signOutStart: () => dispatch(signOutStart())
-})
-
-export default withRouter(connect(null, mapDispatchToProps)(SignOut))
+export default SignOut

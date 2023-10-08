@@ -1,11 +1,11 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import CartIcon from "../cart-icon/cart-icon.components";
 import CartDropdown from "../cart-dropdown/cart-dropdown.components";
 import { selectHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { createStructuredSelector } from "reselect";
+// import { createStructuredSelector } from "reselect";
 import { HeaderContainer, LogoContainer, OptionLink, OptionsContainer } from "./header.styles";
 
 const Header = () => {
